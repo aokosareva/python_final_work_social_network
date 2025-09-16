@@ -1,5 +1,9 @@
-django==5.0.2
-djangorestframework==3.14.0
-pillow==10.2.0
-psycopg2-binary==2.9.9
+asgiref==3.9.1
+Django==5.2.6
+djangorestframework==3.16.1
+dotenv==0.9.9
+geographiclib==2.1
 geopy==2.4.1
+psycopg2-binary==2.9.10
+python-dotenv==1.1.1
+sqlparse==0.5.3
