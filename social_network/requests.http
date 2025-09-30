@@ -1,0 +1,49 @@
+### Get all
+GET {{host}}/api/v1/posts
+
+### Get one
+GET {{host}}/api/v1/posts/1
+
+### Create by admin
+POST {{host}}/api/v1/posts
+Content-Type: application/json
+Authorization: Token {{admin_token}}
+
+{
+  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+  "images": []
+}
+
+
+### Create by user1
+POST {{host}}/api/v1/posts
+Content-Type: application/json
+Authorization: Token {{user_token}}
+
+{
+  "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.",
+  "images": []
+}
+
+### Delete by admin
+DELETE {{host}}/api/v1/posts/36
+Authorization: Token {{admin_token}}
+
+### Update by admin for its own post
+PUT {{host}}/api/v1/posts/1
+Content-Type: application/json
+Authorization: Token {{admin_token}}
+
+{
+  "text": "New text",
+  "images": []
+}
+
+### Update by user for admins post
+PUT {{host}}/api/v1/posts/1
+Content-Type: application/json
+Authorization: Token {{user_token}}
+
+{
+  "text": "Fresh text"
+}
