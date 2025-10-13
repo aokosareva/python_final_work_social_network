@@ -18,18 +18,21 @@ class Post(models.Model):
     # geo_data = models.JSONField(null=True)
 
     def __str__(self):
-        return f"{self.author} - {self.text[:20]}"
+        return f"{self.author} - {self.text[:20]}..."
 
 class Reaction(models.Model):
     class Meta:
         db_table = 'posts_reactions'
+        constraints = [
+            models.UniqueConstraint(
+                fields=('author', 'post',), name='unique_post_reaction_author')]
 
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='reactions')
     reacted_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.reacted_at.strftime('%Y-%m-%d %H:%I:%S')} - {self.author} to post #{self.post.pk}"
+        return f"{self.author} to post #{self.post.pk}"
 
 
 class Comment(models.Model):
@@ -37,9 +40,9 @@ class Comment(models.Model):
         db_table = 'posts_comments'
 
     text = models.TextField()
-    commenter = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     commented_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.commented_at.strftime('%Y-%m-%d %H:%I:%S')} - {self.commenter} to post #{self.post.pk}"
+        return f"{self.text[:20]}..."

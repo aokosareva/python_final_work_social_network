@@ -21,6 +21,6 @@ class IsOwnerOrReadonly(BasePermission):
             return request.user == obj.author
 
         if isinstance(obj, Comment):
-            return request.user == obj.commenter
+            return request.user == obj.author
 
         return False
