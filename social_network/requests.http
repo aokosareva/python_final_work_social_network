@@ -5,13 +5,13 @@ GET {{host}}/api/v1/posts
 GET {{host}}/api/v1/posts/1
 
 ### Create by admin
-POST {{host}}/api/v1/posts
+POST {{host}}/api/v1/posts/
 Content-Type: application/json
 Authorization: Token {{admin_token}}
 
 {
   "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-  "images": []
+  "image": ""
 }
 
 

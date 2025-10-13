@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from posts.models import Post, Comment, Reaction, PostImage
+from posts.models import Post, Comment, Reaction
 
 
 class ReactionSerializer(serializers.ModelSerializer):
@@ -17,14 +17,8 @@ class CommentSerializer(serializers.ModelSerializer):
         read_only_fields = ['commenter']
 
 
-class PostImageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = PostImage
-        fields = '__all__'
-
-
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ['id', 'author', 'text', 'created_at', 'images', 'comments', 'reactions']
+        fields = ['id', 'author', 'text', 'created_at', 'image', 'comments', 'reactions']
         read_only_fields = ['author', 'comments', 'reactions']

@@ -16,13 +16,18 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import SimpleRouter
 
-from posts.views import PostsListCreateView, RetrieveUpdateDestroyView
+from posts.views import PostViewSet
+
+router = SimpleRouter()
+router.register(r'api/v1/posts', PostViewSet, basename='posts')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/posts', PostsListCreateView.as_view()),
-    path('api/v1/posts/<pk>', RetrieveUpdateDestroyView.as_view()),
+    path('', include(router.urls))
+    # path('api/v1/posts', PostsListCreateView.as_view()),
+    # path('api/v1/posts/<pk>', RetrieveUpdateDestroyView.as_view()),
 
 ]
