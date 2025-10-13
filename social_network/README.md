@@ -37,19 +37,20 @@ python manage.py migrate
 5. Создать супер пользователя
 ```commandline
 python manage.py createsuperuser
-....
 ```
-6. В админке создать еще одно пользователя
-7. Обоим создать токены
-8. Запустить проект
+6. Запустить проект
 ```commandline
 python manage.py runserver
 ```
+7. В админке создать еще одно пользователя
+8. Обоим создать токены
+
 
 ## Проверка
-Для проверки удобно пользоваться Postman
+Для проверки удобно пользоваться Postman.
 Коллекция запросов для Postman находится в каталлоге [postman](../postman). 
+
 1. Запустить Postman
 2. Импортировать Environment из [файла](../postman/Posts-DRF.postman_environment.json)
-3. Заполнить токены ранее созданных пользователей
-3. Импортировать Коллекцию из [файла](../postman/Posts-DRF.postman_collection.json)
+3. Заполнить в Environment токены ранее созданных пользователей
+4. Импортировать Коллекцию из [файла](../postman/Posts-DRF.postman_collection.json)
