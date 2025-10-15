@@ -1,14 +1,12 @@
 class GeoData:
-    def __init__(self, value, lat=None, lon=None):
-        self.__value = value
+    def __init__(self, address=None, lat=None, lon=None):
+        self.__address = address
         self.__latitude = lat
         self.__longitude = lon
 
-    def __str__(self):
-        return self.__value
-
-    def coords(self) -> dict:
+    def data(self) -> dict:
         return {
+            'address': self.__address,
             'latitude': self.__latitude,
             'longitude': self.__longitude
         }

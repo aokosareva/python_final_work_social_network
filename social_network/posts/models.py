@@ -14,11 +14,11 @@ class Post(models.Model):
     image = models.ImageField(upload_to='images')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-
-    # geo_data = models.JSONField(null=True)
+    geo_data = models.JSONField(null=True)
 
     def __str__(self):
         return f"{self.author} - {self.text[:20]}..."
+
 
 class Reaction(models.Model):
     class Meta:

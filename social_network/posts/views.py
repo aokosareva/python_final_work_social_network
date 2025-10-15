@@ -47,17 +47,7 @@ class UpdateAndDestroyCommentView(RetrieveUpdateDestroyAPIView):
 
     def get_serializer_context(self):
         context = super().get_serializer_context()
-        post_id = self.kwargs.get('post_id')
-        context['post'] = Post.objects.get(pk=post_id)
         return context
-
-    def retrieve(self, request, *args, **kwargs):
-        try:
-            return super().retrieve(request, *args, *kwargs)
-        except Http404 as e:
-            return Response({'message': str(e)}, status=status.HTTP_404_NOT_FOUND)
-        except BaseException as e:
-            return Response({'message': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def partial_update(self, request, *args, **kwargs):
         try:
@@ -91,9 +81,7 @@ class LikePostView(CreateAPIView):
         try:
             like = Reaction.objects.get(post=kwargs.get('post_id'), author=self.request.user)
             if like:
-                return Response(
-                    data={'message': f'You\'ve liked this post {like.reacted_at}'},
-                    status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+                return Response()
         except Reaction.DoesNotExist:
             pass
 
