@@ -64,7 +64,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/api/v1/posts/1",
+					"raw": "{{host}}/api/v1/posts/30",
 					"host": [
 						"{{host}}"
 					],
@@ -72,7 +72,7 @@
 						"api",
 						"v1",
 						"posts",
-						"1"
+						"30"
 					]
 				},
 				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -118,6 +118,11 @@
 							"key": "image",
 							"type": "file",
 							"src": "/home/naska/Pictures/py_fw/1.jpg"
+						},
+						{
+							"key": "location",
+							"value": "Москва, ул Пятницкая, 16с1",
+							"type": "text"
 						}
 					]
 				},
@@ -169,13 +174,18 @@
 					"formdata": [
 						{
 							"key": "text",
-							"value": "post textpost textpost textpost textpost textpost textpost textpost text",
+							"value": "ываывваываваывывываываываыва",
 							"type": "text"
 						},
 						{
 							"key": "image",
 							"type": "file",
 							"src": "/home/naska/Pictures/py_fw/2.jpg"
+						},
+						{
+							"key": "location",
+							"value": "Калининград",
+							"type": "text"
 						}
 					]
 				},
@@ -233,7 +243,12 @@
 						{
 							"key": "image",
 							"type": "file",
-							"src": "/home/naska/Pictures/py_fw/3.jpg"
+							"src": "/home/naska/Pictures/py_fw/2.jpg"
+						},
+						{
+							"key": "location",
+							"value": "Санкт-Петербург, ул. Пушкина",
+							"type": "text"
 						}
 					]
 				},
@@ -290,15 +305,14 @@
 							"type": "text"
 						},
 						{
-							"key": "image",
-							"type": "file",
-							"src": "/home/naska/Pictures/py_fw/4.png",
-							"disabled": true
+							"key": "location",
+							"value": "Химки, парк Дубки",
+							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "{{host}}/api/v1/posts/1/",
+					"raw": "{{host}}/api/v1/posts/2/",
 					"host": [
 						"{{host}}"
 					],
@@ -306,7 +320,7 @@
 						"api",
 						"v1",
 						"posts",
-						"1",
+						"2",
 						""
 					]
 				},
@@ -351,7 +365,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/api/v1/posts/2/",
+					"raw": "{{host}}/api/v1/posts/5/",
 					"host": [
 						"{{host}}"
 					],
@@ -359,7 +373,7 @@
 						"api",
 						"v1",
 						"posts",
-						"2",
+						"5",
 						""
 					]
 				},
@@ -404,7 +418,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/api/v1/posts/35/",
+					"raw": "{{host}}/api/v1/posts/2/",
 					"host": [
 						"{{host}}"
 					],
@@ -412,7 +426,7 @@
 						"api",
 						"v1",
 						"posts",
-						"35",
+						"2",
 						""
 					]
 				},
@@ -441,7 +455,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/api/v1/posts/2/comments",
+					"raw": "{{host}}/api/v1/posts/1/comments",
 					"host": [
 						"{{host}}"
 					],
@@ -449,7 +463,43 @@
 						"api",
 						"v1",
 						"posts",
-						"2",
+						"1",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comment The Post by user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{user_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"Th Best!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/posts/3/comments",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"posts",
+						"3",
 						"comments"
 					]
 				}
@@ -477,7 +527,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/api/v1/comments/2",
+					"raw": "{{host}}/api/v1/comments/1",
 					"host": [
 						"{{host}}"
 					],
@@ -485,7 +535,7 @@
 						"api",
 						"v1",
 						"comments",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -529,7 +579,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}/api/v1/posts/3/like",
+					"raw": "{{host}}/api/v1/posts/1/like",
 					"host": [
 						"{{host}}"
 					],
@@ -537,7 +587,7 @@
 						"api",
 						"v1",
 						"posts",
-						"3",
+						"1",
 						"like"
 					]
 				}
